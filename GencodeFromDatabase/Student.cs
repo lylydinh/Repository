@@ -44,9 +44,27 @@ namespace GencodeFromDatabase
         public System.DateTime? DateOfBirth { get; set; } // DateOfBirth
         public string Email { get; set; } // Email (length: 500)
 
+        ///<summary>
+        /// Da xoa chua
+        ///</summary>
+        public bool? IsDelete { get; set; } // IsDelete
+
+        ///<summary>
+        /// Ngay khoi tao
+        ///</summary>
+        public System.DateTime? CreateDate { get; set; } // CreateDate
+
+        ///<summary>
+        /// Ngay chinh sua
+        ///</summary>
+        public System.DateTime? UpdateDate { get; set; } // UpdateDate
+
         public Student()
         {
             DateOfBirth = System.DateTime.Now;
+            IsDelete = false;
+            CreateDate = System.DateTime.Now;
+            UpdateDate = System.DateTime.Now;
         }
     }
 

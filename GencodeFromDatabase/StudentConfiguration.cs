@@ -33,6 +33,9 @@ namespace GencodeFromDatabase
             Property(x => x.Phone).HasColumnName(@"Phone").IsOptional().IsUnicode(false).HasColumnType("varchar").HasMaxLength(50);
             Property(x => x.DateOfBirth).HasColumnName(@"DateOfBirth").IsOptional().HasColumnType("datetime");
             Property(x => x.Email).HasColumnName(@"Email").IsRequired().IsUnicode(false).HasColumnType("varchar").HasMaxLength(500);
+            Property(x => x.IsDelete).HasColumnName(@"IsDelete").IsOptional().HasColumnType("bit");
+            Property(x => x.CreateDate).HasColumnName(@"CreateDate").IsOptional().HasColumnType("datetime");
+            Property(x => x.UpdateDate).HasColumnName(@"UpdateDate").IsOptional().HasColumnType("datetime");
         }
     }
 

@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Repository.Library.DbContext.Entities;
+using Repository.Library.UnitOfWork;
+using Repository.Library.ViewModels;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace Repository.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -26,5 +28,10 @@ namespace Repository.Controllers
 
             return View();
         }
+
+        //[HttpPost]
+        //public async Task<JsonResult> GetAllCustomerByStaffList(int page, int pageSize, StudentSearchModal searchModal)
+        //{  
+        //}
     }
 }
