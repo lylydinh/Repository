@@ -115,6 +115,7 @@
     <Compile Include="UnitOfWork\Repository.cs" />
     <Compile Include="UnitOfWork\UnitOfWork.cs" />
     <Compile Include="ViewModels\StudentSearchModal.cs" />
+    <Compile Include="ViewModels\StudentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -1,0 +1,43 @@
+﻿@model Repository.Common.Items.ModelView<Repository.Library.DbContext.Entities.Student,string>
+ 
+@{
+    ViewBag.Title = "ListAll";
+}
+
+
+<div class="box-body">
+    <table id="dt_basic" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th style="width: 20px;">  #  </th>
+                <th class="text-center">Tên hoc sinh</th>
+                <th class="text-center">Dia chi</th>
+                <th class="text-center">So dien thoai</th>
+                <th class="text-center"> Ngay sinh </th>
+                <th class="text-center">Email</th> 
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Items.Count <= 0)
+            {
+                <tr>
+                    <td colspan="7" class="text-center">Chưa có bản ghi nào</td>
+                </tr>
+            }
+            else
+            { 
+                foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td></td>
+                        <td>@item.Name</td>
+                        <td>@item.Address</td>
+                        <td>@item.Phone</td>
+                        <td class="text-right">@string.Format("{0:dd/MM/yyyy}", item.DateOfBirth)</td>
+                        <td>@item.Email</td>
+                    </tr> 
+                }
+            } 
+        </tbody>
+    </table>
+</div>

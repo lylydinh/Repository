@@ -1,7 +1,7 @@
-﻿using Repository.Library.DbContext.Entities;
+﻿using Repository.Common.Items;
+using Repository.Library.DbContext.Entities;
 using Repository.Library.UnitOfWork;
 using Repository.Library.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -15,23 +15,23 @@ namespace Repository.Controllers
             return View();
         }
 
-        public ActionResult About()
+        /// <summary>
+        /// Lay ra danh sach hoc sinh
+        /// </summary>
+        /// <returns></returns>
+
+        public async  Task<ActionResult> ListAll(ModelView<Student,string> model)
         {
-            ViewBag.Message = "Your application description page.";
 
-            return View();
+            long totalRecord;
+            model.PageInfo.PageSize = 2;
+            model.Items = await UnitOfWork.StudentRepo.FindAsync(out totalRecord, null, null,
+                model.PageInfo.CurrentPage, model.PageInfo.PageSize);
+
+            model.PageInfo.TotalRecord = (int)totalRecord;
+            model.PageInfo.Url = Url.Action("Index", "Home");
+            
+            return View(model); 
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        //[HttpPost]
-        //public async Task<JsonResult> GetAllCustomerByStaffList(int page, int pageSize, StudentSearchModal searchModal)
-        //{  
-        //}
     }
 }

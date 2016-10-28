@@ -38,7 +38,7 @@
         /// Ngay chinh sua
         ///</summary>
         public System.DateTime? UpdateDate { get; set; } // UpdateDate
-        public bool? IsDelete { get; set; } // IsDelete
+        public bool IsDelete { get; set; } // IsDelete
 
         public Student()
         {
